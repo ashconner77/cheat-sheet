@@ -1,0 +1,21 @@
+{
+  "name": "cheat-sheet",
+  "version": "1.0.0",
+  "description": "A cheat sheet application created to showcase Angular 1.5 components.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ashley Conner",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.9",
+    "angular-bootstrap": "^0.12.2",
+    "bootstrap": "^3.3.7",
+    "jasmine-core": "^2.5.2",
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.3"
+  }
+}
