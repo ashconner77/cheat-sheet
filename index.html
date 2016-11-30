@@ -8,8 +8,14 @@
     <h1>CheatSheet<h1>
       <a href="#">Click me</a>
 
-      <script src="builds/bundle.js">
+  <div ng-app="cheatSheet">
+    <div ng-view></div>   
+  </div>
 
-      </script>
+       <script src="node_modules/angular/angular.js"></script>
+       <script src="node_modules/angular-route/angular-route.js"></script>
+       <script src="src/app.js"></script>
+       <script src="src/about/about.component.js"></script>    
+      <!--<script src="builds/bundle.js"></script>-->
   </body>
 </html>
