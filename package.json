@@ -7,7 +7,7 @@
     "test": "jasmine",
     "pretest": "echo 'Beginning test run'",
     "posttest": "echo 'Completed test runs'",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "start:dev": "live-server"
   },
   "author": "Ashley Conner",
@@ -22,8 +22,10 @@
     "jquery": "^3.1.1"
   },
   "devDependencies": {
+    "css-loader": "^0.26.1",
     "jasmine": "^2.5.2",
     "nodemon": "^1.11.0",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.3"
   }
 }
