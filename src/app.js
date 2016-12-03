@@ -1,6 +1,8 @@
 (function(){
   "use strict";
 
+  console.log('loading appjs');
+
   var app = angular.module("cheatSheet", [
     'ngRoute',
     ]);

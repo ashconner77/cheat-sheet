@@ -4,7 +4,11 @@
   "description": "A cheat sheet application created to showcase Angular 1.5 components.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine",
+    "pretest": "echo 'Beginning test run'",
+    "posttest": "echo 'Completed test runs'",
+    "start": "node server.js",
+    "start:dev": "live-server"
   },
   "author": "Ashley Conner",
   "license": "ISC",
@@ -18,6 +22,8 @@
     "jquery": "^3.1.1"
   },
   "devDependencies": {
+    "jasmine": "^2.5.2",
+    "nodemon": "^1.11.0",
     "webpack": "^1.13.3"
   }
 }
