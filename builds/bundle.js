@@ -55,6 +55,7 @@
 	__webpack_require__(21);
 	__webpack_require__(23);
 	__webpack_require__(24);
+	__webpack_require__(25);
 	// var css = require('bootstrap/dist/css/bootstrap.css');
 
 	// //var app = require('express');
@@ -50535,12 +50536,14 @@
 	        var vm = this;
 
 	        vm.listData = [];
+	        vm.showAdd = false;
+	        vm.toggleAdd = toggleAdd;
 
 	        vm.$onInit = function(){
 	            // get data from data.json for now
 	            getData($http)
 	                .then(function(data){
-	                    console.log(data);
+	                    
 	                    if(data){
 	                        vm.listData = data;
 	                    } else{
@@ -50549,12 +50552,16 @@
 	                });
 	        };
 
-	    // todo; move to service
+	        // todo; move to service
 	        function getData($http){
 	            return $http.get("src/data/data.json")
 	                .then(function(response){
 	                    return response.data;
 	                })
+	        }
+
+	        function toggleAdd(){
+	            vm.showAdd = !vm.showAdd;
 	        }
 
 	    };
@@ -50578,6 +50585,27 @@
 	    function boardController(){
 
 	    };
+	})();
+
+/***/ },
+/* 25 */
+/***/ function(module, exports) {
+
+	(function(){
+
+	    "use strict";
+
+	    var app = angular.module("cheatSheet");
+
+	    app.component("addList",{
+	        controller: addListController,
+	        controllerAs: "vm",
+	        templateUrl: "src/list/add-list.component.html"
+	    });
+
+	    function addListController(){
+
+	    }
 	})();
 
 /***/ }

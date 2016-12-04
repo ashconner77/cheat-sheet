@@ -14,12 +14,14 @@
         var vm = this;
 
         vm.listData = [];
+        vm.showAdd = false;
+        vm.toggleAdd = toggleAdd;
 
         vm.$onInit = function(){
             // get data from data.json for now
             getData($http)
                 .then(function(data){
-                    console.log(data);
+                    
                     if(data){
                         vm.listData = data;
                     } else{
@@ -28,12 +30,16 @@
                 });
         };
 
-    // todo; move to service
+        // todo; move to service
         function getData($http){
             return $http.get("src/data/data.json")
                 .then(function(response){
                     return response.data;
                 })
+        }
+
+        function toggleAdd(){
+            vm.showAdd = !vm.showAdd;
         }
 
     };

@@ -1,73 +1,33 @@
 <div class="container">
     <h3>To-Do List</h3>
 
-<!--left col-->
     <div class="row">
-        <div class="col-md-2">
-            <!--todo; move this into another component -->
-            <form class="form form-horizontal" style="padding-top:15px;">
-                <main>
-                    <div class="form-group">
-                        <div>
-                            <label>Resource: </label>
-                            <input type="text" class="form-control" name="txtResource" ng-model="vm.resource.name" placeholder="Resource Name" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div>
-                            <label>Link: </label>
-                            <input type="text" class="form-control" name="txtLink" ng-model="vm.resource.link" placeholder="http://" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div>
-                            <label>Type: </label>
-                            <select class="form-control">
-                                <option value="1">Web Tutorial</option>
-                                <option value="2">Video</option>
-                                <option value="3">Book</option>
-                                <option value="4">Podcast</option>
-                                <option value="5">Reference</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add</button>
-                    </div>
-                </main>
-            </form>
+        <div class="col-md-3">
+            <button class="btn btn-primary" ng-click="vm.toggleAdd()">
+                <span class="glyphicon glyphicon-plus"></span> Add item
+            </button>
         </div>
-<!--right col-->
+    </div>
+
+    <div class="row">
         <div class="col-md-10">
+            <add-list ng-show="vm.showAdd"></add-list>
+        </div>
+    </div>    
+    
+    <br>
+
+    <div class="row">       
+        <div class="col-md-12">
             <table class="table table-striped">
                 <th>Resource</th>
                 <th>Link</th>
                 <th>Type</th>
-                <tr>
-                    <td>Webpack tutorial</td>
-                    <td>https://blog.madewithlove.be/post/webpack-your-bags/</td>
-                    <td>Web tutorial</td>
+                <tr ng-repeat="resource in vm.listData">
+                    <td>{{resource.name}}</td>
+                    <td><a href="{{resource.link}}" target="_blank"/>{{resource.link}}</td>
+                    <td>{{resource.type}}</td>
                 </tr>
-
-                 <tr>
-                    <td>NPM Build Tool Tutorial</td>
-                    <td>https://medium.com/@dabit3/introduction-to-using-npm-as-a-build-tool-b41076f488b0#.vxtj5e37j</td>
-                    <td>Web tutorial</td>
-                </tr>
-
-                
-                 <tr>
-                    <td>Adventures in Angular podcast</td>
-                    <td>https://devchat.tv/adv-in-angular/103-aia-new-developer-problems</td>
-                    <td>Podcast</td>
-                </tr>
-
-                 <tr>
-                    <td>Angular 1 StyleGuide</td>
-                    <td>https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md</td>
-                    <td>Reference</td>
-                </tr>
-            
             </table>
         </div>
     </div>

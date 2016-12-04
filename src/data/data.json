@@ -22,5 +22,11 @@
         "name" : "Angular 1 StyleGuide",
         "link" : "https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md",
         "type" : "Reference"
+    },
+    {
+        "id" : 5,
+        "name" : "Safari Books",
+        "link" : "www.safaribooksonline.com",
+        "type" : "Reference"
     }
 ]
