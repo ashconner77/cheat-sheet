@@ -1,0 +1,26 @@
+[
+    {
+        "id" : 1,
+        "name" : "Webpack tutorial",
+        "link" : "https://blog.madewithlove.be/post/webpack-your-bags/",
+        "type" : "Web tutorial"
+    },
+      {
+        "id" : 2,
+        "name" : "NPM Build Tool Tutorial",
+        "link" : "https://medium.com/@dabit3/introduction-to-using-npm-as-a-build-tool-b41076f488b0#.vxtj5e37j",
+        "type" : "Web tutorial"
+    },
+     {
+        "id" : 3,
+        "name" : "Adventures in Angular podcasts",
+        "link" : "https://devchat.tv/adv-in-angular/",
+        "type" : "Podcast"
+    },
+     {
+        "id" : 4,
+        "name" : "Angular 1 StyleGuide",
+        "link" : "https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md",
+        "type" : "Reference"
+    }
+]

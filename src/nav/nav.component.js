@@ -8,7 +8,7 @@
     var app = angular.module('cheatSheet');
 
     app.component('navComponent', {
-        controller: function() {},
+        controller: navController,
         controllerAs: 'vm',
         templateUrl: 'src/nav/nav.component.html'
     }); 

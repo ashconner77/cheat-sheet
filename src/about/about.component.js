@@ -4,7 +4,14 @@
     var app = angular.module("cheatSheet");
 
     app.component("appAbout", {
-        template: "About placeholder"
+          templateUrl: 'src/about/about.component.html',
+          controller: aboutController,
+          controllerAs: 'vm'
     });
+
+    function aboutController(){
+        
+    };
+
 })();
 

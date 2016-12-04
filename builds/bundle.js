@@ -44,22 +44,20 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	//var $ = require('node_modules/jquery/dist/jquery.js');
+	
 	var $ = __webpack_require__(1);
 	var bs = __webpack_require__(2);
 	var angular = __webpack_require__(15);
 	var angular = __webpack_require__(22);
 	var router = __webpack_require__(17);
 	var app = __webpack_require__(19);
-	var about = __webpack_require__(20);
-	var nav = __webpack_require__(21);
+	__webpack_require__(20);
+	__webpack_require__(21);
+	__webpack_require__(23);
+	__webpack_require__(24);
 	// var css = require('bootstrap/dist/css/bootstrap.css');
 
 	// //var app = require('express');
-
-	// $('body').html('Hello');
-	// console.log('jquery loaded');
-	// console.log(angular);
 
 
 /***/ },
@@ -46237,8 +46235,14 @@
 	  app.config(['$routeProvider',
 	    function($routeProvider){
 	      $routeProvider
-	        .when("/main", {
+	        .when("/about", {
 	          template: '<app-about></app-about>'
+	        })
+	        .when("/list", {
+	          template:"<list-component></list-component>"
+	        })
+	        .when("/board", {
+	          template: "<white-board></white-board>",
 	        })
 	        .otherwise({
 	          redirectTo: "/"
@@ -46260,8 +46264,15 @@
 	    var app = angular.module("cheatSheet");
 
 	    app.component("appAbout", {
-	        template: "About placeholder"
+	          templateUrl: 'src/about/about.component.html',
+	          controller: aboutController,
+	          controllerAs: 'vm'
 	    });
+
+	    function aboutController(){
+	        
+	    };
+
 	})();
 
 
@@ -46280,7 +46291,7 @@
 	    var app = angular.module('cheatSheet');
 
 	    app.component('navComponent', {
-	        controller: function() {},
+	        controller: navController,
 	        controllerAs: 'vm',
 	        templateUrl: 'src/nav/nav.component.html'
 	    }); 
@@ -50503,6 +50514,71 @@
 	    "");
 	}]);
 
+
+/***/ },
+/* 23 */
+/***/ function(module, exports) {
+
+	(function(){
+	    "use strict";
+
+	    var app = angular.module("cheatSheet");
+
+	    app.component("listComponent", {
+	        templateUrl: "src/list/list.component.html",
+	        controller: listController,
+	        controllerAs: "vm",
+	    });
+
+	    function listController($http){
+
+	        var vm = this;
+
+	        vm.listData = [];
+
+	        vm.$onInit = function(){
+	            // get data from data.json for now
+	            getData($http)
+	                .then(function(data){
+	                    console.log(data);
+	                    if(data){
+	                        vm.listData = data;
+	                    } else{
+	                        vm.listData = [];
+	                    }
+	                });
+	        };
+
+	    // todo; move to service
+	        function getData($http){
+	            return $http.get("src/data/data.json")
+	                .then(function(response){
+	                    return response.data;
+	                })
+	        }
+
+	    };
+	})();
+
+/***/ },
+/* 24 */
+/***/ function(module, exports) {
+
+	(function(){
+	    "use strict";
+
+	    var app = angular.module("cheatSheet");
+
+	    app.component("whiteBoard", {
+	        controller: boardController,
+	        controllerAs: "vm",
+	        templateUrl: "src/whiteboard/board.component.html"
+	    });
+
+	    function boardController(){
+
+	    };
+	})();
 
 /***/ }
 /******/ ]);
