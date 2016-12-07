@@ -6,7 +6,7 @@ To run with express:
 $ npm start
 
 To run with live-server (for development):
-$npm run start:dev
+$ npm run start:dev
 
 Dev changes if running webpack
 $ webpack --watch

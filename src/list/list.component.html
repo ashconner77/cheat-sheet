@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col-md-10">
-            <add-list ng-show="vm.showAdd"></add-list>
+            <add-list on-add-item="vm.addListItem($event)" ng-show="vm.showAdd"></add-list>
         </div>
     </div>    
     

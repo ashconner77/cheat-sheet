@@ -5,21 +5,22 @@
 
     app.component("listComponent", {
         templateUrl: "src/list/list.component.html",
-        controller: listController,
+        controller: ["listFactory",listController],
         controllerAs: "vm",
     });
 
-    function listController($http){
+    function listController(listFactory){
 
         var vm = this;
-
+                
+        vm.addListItem = addListItem;
         vm.listData = [];
         vm.showAdd = false;
         vm.toggleAdd = toggleAdd;
 
         vm.$onInit = function(){
             // get data from data.json for now
-            getData($http)
+            listFactory.getListData()
                 .then(function(data){
                     
                     if(data){
@@ -30,17 +31,16 @@
                 });
         };
 
-        // todo; move to service
-        function getData($http){
-            return $http.get("src/data/data.json")
-                .then(function(response){
-                    return response.data;
-                })
-        }
-
         function toggleAdd(){
             vm.showAdd = !vm.showAdd;
         }
 
+        // event callback fn
+        function addListItem(event){
+            if(event.newItem){
+                vm.listData.push(event.newItem);
+            }            
+        }
     };
+    
 })();
