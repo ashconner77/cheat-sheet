@@ -14,13 +14,15 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'sinon'],
 
 
     // list of files / patterns to load in the browser
     files: [
       './builds/bundle.js',
       './node_modules/angular-mocks/angular-mocks.js',
+      './node_modules/sinon/pkg/sinon.js',
+      './node_modules/bardjs/dist/bard.js',      
       './src/**/*spec.js'
     ],
 
