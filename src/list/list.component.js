@@ -5,7 +5,7 @@
 
     app.component("listComponent", {
         templateUrl: "src/list/list.component.html",
-        controller: ["listFactory",listController],
+        controller: ["listFactory", listController],
         controllerAs: "vm",
     });
 
@@ -42,5 +42,5 @@
             }            
         }
     };
-    
+
 })();
