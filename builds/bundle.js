@@ -45,21 +45,19 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var $ = __webpack_require__(1);
-	var bs = __webpack_require__(2);
-	var angular = __webpack_require__(15);
-	var angular = __webpack_require__(17);
-	var router = __webpack_require__(18);
-	var app = __webpack_require__(20);
+	__webpack_require__(1);
+	__webpack_require__(2);
+	__webpack_require__(15);
+	__webpack_require__(17);
+	__webpack_require__(18);
+	__webpack_require__(20);
 	__webpack_require__(21);
 	__webpack_require__(22);
 	__webpack_require__(23);
 	__webpack_require__(24);
 	__webpack_require__(25);
 	__webpack_require__(26);
-	// var css = require('bootstrap/dist/css/bootstrap.css');
 
-	// //var app = require('express');
 
 
 /***/ },
@@ -50528,7 +50526,7 @@
 
 	    app.component("listComponent", {
 	        templateUrl: "src/list/list.component.html",
-	        controller: ["listFactory",listController],
+	        controller: ["listFactory", listController],
 	        controllerAs: "vm",
 	    });
 
@@ -50565,7 +50563,7 @@
 	            }            
 	        }
 	    };
-	    
+
 	})();
 
 /***/ },
@@ -50657,6 +50655,15 @@
 	        }
 	        return listFactory;
 
+	        function success(response){
+	            return response.data;
+	        }
+
+	        function error(error){
+	             var msg = error.data.description;
+	             return $q.reject('Failed: ' + msg);
+	        }
+
 	        function getListData(){
 	            
 	            if(list.length > 0){
@@ -50665,10 +50672,13 @@
 	                return $http.get("src/data/data.json")
 	                    .then(function(response){
 	                        list = response.data;
-	                        return response.data;
+	                        return success(response);
 	                    })
+	                    .catch(error);
 	            }
 	        }
+
+	       
 	    }
 	})();
 

@@ -10,3 +10,6 @@ $ npm run start:dev
 
 Dev changes if running webpack
 $ webpack --watch
+
+Running tests:
+$ karma start

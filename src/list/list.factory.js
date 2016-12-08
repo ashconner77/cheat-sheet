@@ -15,6 +15,15 @@
         }
         return listFactory;
 
+        function success(response){
+            return response.data;
+        }
+
+        function error(error){
+             var msg = error.data.description;
+             return $q.reject('Failed: ' + msg);
+        }
+
         function getListData(){
             
             if(list.length > 0){
@@ -23,9 +32,12 @@
                 return $http.get("src/data/data.json")
                     .then(function(response){
                         list = response.data;
-                        return response.data;
+                        return success(response);
                     })
+                    .catch(error);
             }
         }
+
+       
     }
 })();
