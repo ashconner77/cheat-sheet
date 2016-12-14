@@ -23,7 +23,9 @@ module.exports = function(config) {
       './node_modules/angular-mocks/angular-mocks.js',
       './node_modules/sinon/pkg/sinon.js',
       './node_modules/bardjs/dist/bard.js',      
-      './src/**/*spec.js'
+      './src/**/*spec.js',
+      '*.html',
+      './src/**/*.html'
     ],
 
     // list of files to exclude
@@ -35,7 +37,13 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-       './src/bundle.js': ['webpack'],      
+       './src/bundle.js': ['webpack'],   
+        './src/**/*.html': ['ng-html2js']   
+    },
+
+     ngHtml2JsPreprocessor: {
+      // strip this from the file path
+      stripPrefix: './',
     },
     
     webpackMiddleware: {

@@ -14,6 +14,7 @@
         var vm = this;
                 
         vm.addListItem = addListItem;
+        vm.deleteListItem = deleteListItem;
         vm.listData = [];
         vm.showAdd = false;
         vm.toggleAdd = toggleAdd;
@@ -40,6 +41,17 @@
             if(event.newItem){
                 vm.listData.push(event.newItem);
             }            
+        }
+
+        function deleteListItem(item){
+            if(item){
+               for(var i = 0; i< vm.listData.length; i++){
+                   if(vm.listData[i].id === item){
+                       vm.listData.splice(i, 1);
+                       break;
+                   }
+               }
+            }
         }
     };
 

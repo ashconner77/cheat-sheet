@@ -58,6 +58,8 @@
 	__webpack_require__(25);
 	__webpack_require__(26);
 
+	// require('./list/test.js');
+
 
 
 /***/ },
@@ -50535,6 +50537,7 @@
 	        var vm = this;
 	                
 	        vm.addListItem = addListItem;
+	        vm.deleteListItem = deleteListItem;
 	        vm.listData = [];
 	        vm.showAdd = false;
 	        vm.toggleAdd = toggleAdd;
@@ -50561,6 +50564,17 @@
 	            if(event.newItem){
 	                vm.listData.push(event.newItem);
 	            }            
+	        }
+
+	        function deleteListItem(item){
+	            if(item){
+	               for(var i = 0; i< vm.listData.length; i++){
+	                   if(vm.listData[i].id === item){
+	                       vm.listData.splice(i, 1);
+	                       break;
+	                   }
+	               }
+	            }
 	        }
 	    };
 
@@ -50613,15 +50627,17 @@
 	         
 	        vm.$onInit = function(){
 	            vm.resource = {
+	                id: 0,
 	                name: '',
 	                link: '',
-	                type: 0
+	                type: ''
 	            }
 	        }
 
 	        function addItemToList(){
 	            if(vm.resource.name){
 
+	                vm.resource.id = Math.random();
 	                vm.onAddItem({
 	                    $event: {
 	                        newItem: vm.resource

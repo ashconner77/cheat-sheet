@@ -1,10 +1,12 @@
 <div class="container">
-    <h3>To-Do List</h3>
+    <h3 class='todoHeader'>To-Do List</h3>
 
     <div class="row">
         <div class="col-md-3">
+
             <button class="btn btn-primary" ng-click="vm.toggleAdd()">
-                <span class="glyphicon glyphicon-plus"></span> Add item
+                <span ng-show="vm.showAdd"><span class="glyphicon glyphicon-minus"></span> Minimize</span>
+                <span ng-hide="vm.showAdd"><span class="glyphicon glyphicon-plus"></span> Add item </span>
             </button>
         </div>
     </div>
@@ -23,10 +25,14 @@
                 <th>Resource</th>
                 <th>Link</th>
                 <th>Type</th>
+                <th></th>
                 <tr ng-repeat="resource in vm.listData">
                     <td>{{resource.name}}</td>
                     <td><a href="{{resource.link}}" target="_blank"/>{{resource.link}}</td>
                     <td>{{resource.type}}</td>
+                    <td>
+                        <button class="btn btn-default btn-sm" ng-click="vm.deleteListItem( resource.id )"><span class="glyphicon glyphicon-trash"></span></button>
+                    </td>
                 </tr>
             </table>
         </div>

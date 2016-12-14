@@ -21,15 +21,17 @@
          
         vm.$onInit = function(){
             vm.resource = {
+                id: 0,
                 name: '',
                 link: '',
-                type: 0
+                type: ''
             }
         }
 
         function addItemToList(){
             if(vm.resource.name){
 
+                vm.resource.id = Math.random();
                 vm.onAddItem({
                     $event: {
                         newItem: vm.resource
