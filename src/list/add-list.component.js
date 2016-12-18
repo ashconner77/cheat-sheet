@@ -32,6 +32,7 @@
             if(vm.resource.name){
 
                 vm.resource.id = Math.random();
+                
                 vm.onAddItem({
                     $event: {
                         newItem: vm.resource

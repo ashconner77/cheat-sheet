@@ -1,8 +1,6 @@
 (function(){
   "use strict";
 
-  // $('body').html('Hello');
-
   var app = angular.module("cheatSheet", [
     'ngRoute',
     ]);

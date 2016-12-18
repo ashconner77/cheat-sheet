@@ -12,5 +12,3 @@ require('./whiteboard/board.component.js');
 require('./list/add-list.component.js');
 require('./list/list.factory.js');
 
-// require('./list/test.js');
-

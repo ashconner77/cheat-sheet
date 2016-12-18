@@ -28,6 +28,7 @@ module.exports = function(config) {
       './src/**/*.html'
     ],
 
+   
     // list of files to exclude
     exclude: [
     ],
@@ -44,6 +45,7 @@ module.exports = function(config) {
      ngHtml2JsPreprocessor: {
       // strip this from the file path
       stripPrefix: './',
+      moduleName: 'templates',
     },
     
     webpackMiddleware: {

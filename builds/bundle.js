@@ -58,8 +58,6 @@
 	__webpack_require__(25);
 	__webpack_require__(26);
 
-	// require('./list/test.js');
-
 
 
 /***/ },
@@ -50444,8 +50442,6 @@
 	(function(){
 	  "use strict";
 
-	  // $('body').html('Hello');
-
 	  var app = angular.module("cheatSheet", [
 	    'ngRoute',
 	    ]);
@@ -50638,6 +50634,7 @@
 	            if(vm.resource.name){
 
 	                vm.resource.id = Math.random();
+	                
 	                vm.onAddItem({
 	                    $event: {
 	                        newItem: vm.resource
