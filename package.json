@@ -19,7 +19,8 @@
     "bootstrap": "^3.3.7",
     "express": "^4.14.0",
     "jasmine-core": "^2.5.2",
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "simplemde": "^1.11.2"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.9",

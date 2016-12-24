@@ -1,5 +1,7 @@
+
 (function(){
     "use strict";
+
 
     var app = angular.module("cheatSheet");
 
@@ -10,6 +12,12 @@
     });
 
     function boardController(){
+        var vm = this;
 
+       vm.note = {
+           id: 1,
+           text: "here's a note thingie. Booom."
+       }
     };
 })();
+
