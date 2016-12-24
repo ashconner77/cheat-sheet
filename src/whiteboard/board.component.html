@@ -12,27 +12,24 @@
                             <h4>All Notes </h4>
                         </div>
                         <div class="col-lg-2 pull-right">
-                            <button class="btn btn-primary">Add <span class="glyphicon glyphicon-plus-sign"></span></button>
+                            <button class="btn btn-primary" ng-click="vm.addNote()">
+                                Add <span class="glyphicon glyphicon-plus-sign"></span>
+                            </button>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="list-group">
-                                <a href="#" class="list-group-item clearfix">
-                                    <span class="glyphicon glyphicon-file"></span> Don't forget to add tests!
-
-                                    <button class="btn btn-default btn-xs pull-right">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </button>
-                                </a>
-
-                                <a href="#" class="list-group-item clearfix">
-                                    <span class="glyphicon glyphicon-file"></span> Protractor requires web-driver to be installed and running.
-                                    <button class="btn btn-default btn-xs pull-right">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </button>
-                                </a>
+                                <div ng-repeat="note in vm.notes">
+                                    <div class="list-group-item clearfix">
+                                        <span class="glyphicon glyphicon-file"></span> 
+                                        {{ note.text }}
+                                        <button class="btn btn-default btn-xs pull-right" ng-click="vm.editNote(note)">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                        </button>
+                                    </div>
+                                </div>
                             </ul>
                         </div>
                     </div> <!-- end row--> 
@@ -44,7 +41,7 @@
             <!-- main -->
             <main>
                 <div class="col-md-7 col-md-offset-1">
-                    <simple-mde-wrapper note="vm.note"></simple-mde-wrapper>
+                    <simple-mde-wrapper note="vm.selectedNote"></simple-mde-wrapper>
                 </div>
             </main>
         </div>

@@ -50599,10 +50599,29 @@
 	    function boardController(){
 	        var vm = this;
 
-	       vm.note = {
-	           id: 1,
-	           text: "here's a note thingie. Booom."
-	       }
+	        vm.notes = [
+	            {
+	                id: 1,
+	                text: "here's a note thingie. **Booom**."
+	            },
+	            {
+	                id: 2,
+	                text: "Protractor requires web-driver to be installed and running."
+	            }
+	        ]
+
+	        // functions
+	        vm.addNote = addNote;
+	        vm.editNote = editNote;
+
+	        function addNote(){
+	            // todo; init a new mde-wrapper
+	        }
+
+	        function editNote(selectedNote){
+	            // here's the note we're editing now...
+	            vm.selectedNote = selectedNote;
+	        }
 	    };
 	})();
 
@@ -50780,23 +50799,29 @@
 
 	    function simpleController(){
 
-	        var vm = this;        
-	        vm.mde = {};
+	        var vm = this;     
+	        vm.mde = new SimpleMDE();
 	        vm.isolateNote = {};
 	        vm.updateNote = updateNote;
 
 
-	        vm.$onInit = function(){        
+	        vm.$onInit = function(){    
+	        
 	            // make a copy here to preserve our 1 way binding
-	            vm.isolateNote = angular.copy(vm.note);
+	            vm.isolateNote = vm.note ? angular.copy(vm.note) : {};
 
-	            vm.mde = new SimpleMDE();
+	            // set up MDE initial value and change event
 	            vm.mde.value(vm.isolateNote.text);
 
 	            vm.mde.codemirror.on("change", function () {
 	                vm.isolateNote.text = vm.mde.value();
-	            });
+	            });      
 	        };
+
+	        vm.$onChanges = function(){
+	            vm.isolateNote = vm.note ? angular.copy(vm.note) : {};
+	            vm.mde.value(vm.isolateNote.text);
+	        }
 
 	        function updateNote(){
 	            console.log('last note value is: ' + vm.isolateNote.text);
